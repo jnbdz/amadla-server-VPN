@@ -1,0 +1,12 @@
+---
+- name: 'VPN | Provision Amadla Image'
+  hosts: all
+  any_errors_fatal: true # stop if anything is wrong
+  gather_facts: true
+  become: true # Means become `root` if set with true
+  become_user: root
+  become_method: sudo
+  vars:
+    user_username: "{{ lookup('env','USER_USERNAME') }}"
+    user_server_password: "{{ lookup('env','USER_SERVER_PASSWORD') }}"
+  tasks:
